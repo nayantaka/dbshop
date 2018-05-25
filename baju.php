@@ -7,7 +7,7 @@ while ($row = $result->fetch_assoc()) {
 	echo $row['nama_baju'];
 	?>
 	 | 
-	<?
+	<?php
 	echo $row['harga'];
 	?>
 	 | 
