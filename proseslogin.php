@@ -1,4 +1,5 @@
 <?php
+session_start();
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
 //membuat koneksi//
@@ -7,9 +8,10 @@ $sql = "SELECT * FROM pengguna where username='$username' AND password='$passwor
 $result = $mysqli->query($sql);//eksekusi query//
 $jumlah = $result->num_rows;
 if($jumlah>0){
-echo 'Selamat datang ' . $username;
+  $_SESSION['username']=$username;
+  header("location:home.php");
 }
 else{
-echo 'Maaf user / password yang anda masukkan salah!';
+  header("location:login.php");
 }
 ?>
